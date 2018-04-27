@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_grey"
+    android:background="#3d505a"
     android:padding="@dimen/box_inset_layout_padding"
     tools:context=".tracking_on"
     tools:deviceIds="wear">
@@ -14,5 +14,12 @@
         android:layout_height="match_parent"
         android:padding="@dimen/inner_frame_layout_padding"
         app:boxedEdges="all">
+        <ImageView
+            android:id="@+id/tracking_on_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/tracking_activity_background"
+            android:tint="#4d5d66"
+            />
     </FrameLayout>
 </android.support.wear.widget.BoxInsetLayout>
