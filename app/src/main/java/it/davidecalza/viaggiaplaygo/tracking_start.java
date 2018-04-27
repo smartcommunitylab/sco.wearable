@@ -74,14 +74,18 @@ public class tracking_start extends WearableActivity {
             public void onReceive(Context context, Intent intent) {
                 String msg = intent.getStringExtra("WearMessage");
                 Log.i("WearService", "tracking_start: " + msg);
+                String sender = msg.split("_")[0];
+                String activity = msg.split("_")[1];
+                String mode = msg.split("_")[2];
+                String ok = msg.split("_")[3];
 
-                if(msg.split("_")[0].equals("smartphone")){
+                if(sender.equals("smartphone") && activity.equals("starttracking") && ok.equals("ok")){
                     Intent tracking = new Intent(tracking_start.this, tracking_on.class);
-                    switch (msg.split("_")[1]){
-                        case "starttracking_bike_ok": tracking.putExtra("tracking_mode", "@drawable/bike_bg"); break;
-                        case "starttracking_walk_ok": tracking.putExtra("tracking_mode", "@drawable/walk_bg"); break;
-                        case "starttracking_bus_ok": tracking.putExtra("tracking_mode", "@drawable/bus_bg"); break;
-                        case "starttracking_train_ok": tracking.putExtra("tracking_mode", "@drawable/train_bg"); break;
+                    switch (mode){
+                        case "starttracking_bike": tracking.putExtra("tracking_mode", "@drawable/bike_bg"); break;
+                        case "starttracking_walk": tracking.putExtra("tracking_mode", "@drawable/walk_bg"); break;
+                        case "starttracking_bus": tracking.putExtra("tracking_mode", "@drawable/bus_bg"); break;
+                        case "starttracking_train": tracking.putExtra("tracking_mode", "@drawable/train_bg"); break;
                         default: return;
                     }
                     tracking_start.this.startActivity(tracking);
