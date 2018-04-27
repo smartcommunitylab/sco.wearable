@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3d505a"
+    android:padding="@dimen/box_inset_layout_padding"
+    tools:context=".tracking_start"
+    tools:deviceIds="wear">
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="75pt"
+        android:background="#94c11f"
+        android:text="@string/start"
+        android:fontFamily="monospace"
+        android:textSize="14pt"
+        android:paddingTop="3pt"
+        android:clickable="false" />
+
+    <TextClock
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="85pt"
+        android:textColor="@color/white"
+        android:textSize="9pt"
+        android:textAlignment="center"
+        android:paddingBottom="3pt"/>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="20pt"
+            android:layout_marginBottom="15pt">
+
+            <ImageButton
+                android:id="@+id/btn_bike"
+                android:layout_width="37pt"
+                android:layout_height="37pt"
+                android:layout_marginStart="6pt"
+                android:layout_marginTop="17pt"
+                android:background="@drawable/roundedbutton"
+                android:backgroundTint="#932e68"
+                tools:ignore="ButtonStyle"
+                android:src="@drawable/bike"
+                android:tint="@color/white"
+                android:contentDescription="@string/start_bike_tracking" />
+
+            <ImageButton
+                android:id="@+id/btn_walk"
+                android:layout_width="37pt"
+                android:layout_height="37pt"
+                android:layout_marginStart="6pt"
+                android:layout_marginTop="17pt"
+                android:background="@drawable/roundedbutton"
+                android:backgroundTint="#8dc04d"
+                tools:ignore="ButtonStyle"
+                android:src="@drawable/walk"
+                android:tint="@color/white"
+                android:contentDescription="@string/start_walk_tracking" />
+
+            <ImageButton
+                android:id="@+id/btn_bus"
+                android:layout_width="37pt"
+                android:layout_height="37pt"
+                android:layout_marginStart="6pt"
+                android:layout_marginTop="17pt"
+                android:background="@drawable/roundedbutton"
+                android:backgroundTint="#ea8916"
+                tools:ignore="ButtonStyle"
+                android:src="@drawable/bus"
+                android:tint="@color/white"
+                android:contentDescription="@string/start_bus_tracking" />
+
+            <ImageButton
+                android:id="@+id/btn_train"
+                android:layout_width="37pt"
+                android:layout_height="37pt"
+                android:layout_marginStart="6pt"
+                android:layout_marginTop="17pt"
+                android:layout_marginEnd="6pt"
+                android:background="@drawable/roundedbutton"
+                android:backgroundTint="#26c6da"
+                tools:ignore="ButtonStyle"
+                android:src="@drawable/train"
+                android:tint="@color/white"
+                android:contentDescription="@string/start_train_tracking" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+</android.support.wear.widget.BoxInsetLayout>
