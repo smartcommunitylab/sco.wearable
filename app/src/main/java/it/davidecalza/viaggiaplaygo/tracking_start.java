@@ -1,6 +1,5 @@
 package it.davidecalza.viaggiaplaygo;
 
-import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -22,8 +21,6 @@ import com.google.android.gms.wearable.Wearable;
 public class tracking_start extends WearableActivity {
 
     private GoogleApiClient api;
-    private BroadcastReceiver receiver;
-    private String _syncPath = "/CordovaCommunication/Data";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +34,10 @@ public class tracking_start extends WearableActivity {
             api.connect();
         }
 
-        ImageButton btn_bike = (ImageButton) findViewById(R.id.btn_bike);
-        ImageButton btn_walk = (ImageButton) findViewById(R.id.btn_walk);
-        ImageButton btn_bus = (ImageButton) findViewById(R.id.btn_bus);
-        ImageButton btn_train = (ImageButton) findViewById(R.id.btn_train);
+        ImageButton btn_bike = findViewById(R.id.btn_bike);
+        ImageButton btn_walk = findViewById(R.id.btn_walk);
+        ImageButton btn_bus = findViewById(R.id.btn_bus);
+        ImageButton btn_train = findViewById(R.id.btn_train);
 
         btn_bike.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,11 +70,22 @@ public class tracking_start extends WearableActivity {
         // Broadcast Receiver
         IntentFilter filter = new IntentFilter(Intent.ACTION_SEND);
         BroadcastReceiver receiver = new BroadcastReceiver() {
-            @SuppressLint("ShowToast")
             @Override
             public void onReceive(Context context, Intent intent) {
                 String msg = intent.getStringExtra("WearMessage");
-                Log.i("WearService", "Received: " + msg);
+                Log.i("WearService", "tracking_start: " + msg);
+
+                if(msg.split("_")[0].equals("smartphone")){
+                    Intent tracking = new Intent(tracking_start.this, tracking_on.class);
+                    switch (msg.split("_")[1]){
+                        case "starttracking_bike_ok": tracking.putExtra("tracking_mode", "@drawable/bike_bg"); break;
+                        case "starttracking_walk_ok": tracking.putExtra("tracking_mode", "@drawable/walk_bg"); break;
+                        case "starttracking_bus_ok": tracking.putExtra("tracking_mode", "@drawable/bus_bg"); break;
+                        case "starttracking_train_ok": tracking.putExtra("tracking_mode", "@drawable/train_bg"); break;
+                        default: return;
+                    }
+                    tracking_start.this.startActivity(tracking);
+                }
             }
         };
         LocalBroadcastManager.getInstance(this.getApplicationContext()).registerReceiver(receiver, filter);

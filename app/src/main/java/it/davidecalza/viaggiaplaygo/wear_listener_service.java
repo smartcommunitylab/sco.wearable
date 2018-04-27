@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.SystemClock;
 import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
 
 import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -49,6 +50,8 @@ public class wear_listener_service extends WearableListenerService {
         super.onMessageReceived(messageEvent);
         byte[] b = messageEvent.getData();
         String s = new String(b);
+        Log.i("WearService", "received: " + s);
+
 
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);

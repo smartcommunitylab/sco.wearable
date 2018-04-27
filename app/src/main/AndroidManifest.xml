@@ -47,6 +47,10 @@
                     tools:ignore="WearableBindListener" />
             </intent-filter>
         </service>
+
+        <activity
+            android:name=".tracking_on"
+            android:label="@string/title_activity_tracking_on"></activity>
     </application>
 
 </manifest>
