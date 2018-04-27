@@ -9,17 +9,53 @@
     tools:context=".tracking_on"
     tools:deviceIds="wear">
 
-    <FrameLayout
+    <Button
+        android:id="@+id/btn_stop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/inner_frame_layout_padding"
-        app:boxedEdges="all">
-        <ImageView
-            android:id="@+id/tracking_on_image"
+        android:layout_marginBottom="75pt"
+        android:background="#e72f2a"
+        android:text="@string/stop"
+        android:fontFamily="monospace"
+        android:textSize="14pt"
+        android:textStyle="bold"
+        android:paddingTop="3pt"
+        android:clickable="false" />
+
+    <TextClock
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="85pt"
+        android:textColor="@color/white"
+        android:textSize="9pt"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:paddingBottom="3pt"/>
+
+    <ImageView
+        android:id="@+id/tracking_on_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/tracking_activity_background"
+        android:tint="#4d5d66"
+        app:boxedEdges="all"
+        android:layout_marginTop="10pt"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20pt"
+        android:layout_marginBottom="15pt">
+        <TextView
+            android:id="@+id/timer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/tracking_activity_background"
-            android:tint="#4d5d66"
-            />
-    </FrameLayout>
+            android:layout_marginTop="14pt"
+            android:layout_marginBottom="30pt"
+            android:textAlignment="center"
+            android:textSize="13pt"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
 </android.support.wear.widget.BoxInsetLayout>
