@@ -50,7 +50,7 @@ public class wear_listener_service extends WearableListenerService {
         super.onMessageReceived(messageEvent);
         byte[] b = messageEvent.getData();
         String s = new String(b);
-        Log.i("WearService", "received: " + s);
+//        Log.i("WearService", "received: " + s);
 
 
         Intent intent = new Intent();

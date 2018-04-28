@@ -82,10 +82,22 @@ public class tracking_start extends WearableActivity {
                 if(sender.equals("smartphone") && activity.equals("starttracking") && ok.equals("ok")){
                     Intent tracking = new Intent(tracking_start.this, tracking_on.class);
                     switch (mode){
-                        case "bike": tracking.putExtra("tracking_mode", R.drawable.bike_bg); break;
-                        case "walk": tracking.putExtra("tracking_mode", R.drawable.walk_bg); break;
-                        case "bus": tracking.putExtra("tracking_mode", R.drawable.bus_bg); break;
-                        case "train": tracking.putExtra("tracking_mode", R.drawable.train_bg); break;
+                        case "bike":
+                            tracking.putExtra("tracking_bg", R.drawable.bike_bg);
+                            tracking.putExtra("tracking_mode", "bike");
+                            break;
+                        case "walk":
+                            tracking.putExtra("tracking_bg", R.drawable.walk_bg);
+                            tracking.putExtra("tracking_mode", "walk");
+                            break;
+                        case "bus":
+                            tracking.putExtra("tracking_bg", R.drawable.bus_bg);
+                            tracking.putExtra("tracking_mode", "bus");
+                            break;
+                        case "train":
+                            tracking.putExtra("tracking_bg", R.drawable.train_bg);
+                            tracking.putExtra("tracking_mode", "train");
+                            break;
                         default: return;
                     }
                     tracking_start.this.startActivity(tracking);
