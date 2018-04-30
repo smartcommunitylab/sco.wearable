@@ -9,93 +9,191 @@
     tools:context=".tracking_start"
     tools:deviceIds="wear">
 
-    <Button
-        android:id="@+id/btn_start"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="75pt"
-        android:background="#94c11f"
-        android:text="@string/start"
-        android:fontFamily="monospace"
-        android:textSize="14pt"
-        android:textStyle="bold"
-        android:paddingTop="3pt"
-        android:clickable="false" />
-
-    <TextClock
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="85pt"
-        android:textColor="@color/white"
-        android:textSize="9pt"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:paddingBottom="3pt"/>
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginTop="20pt"
-            android:layout_marginBottom="15pt">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/btn_bike"
-                android:layout_width="37pt"
-                android:layout_height="37pt"
-                android:layout_marginStart="6pt"
-                android:layout_marginTop="17pt"
-                android:background="@drawable/roundedbutton"
-                android:backgroundTint="#932e68"
-                tools:ignore="ButtonStyle"
-                android:src="@drawable/bike"
-                android:tint="@color/white"
-                android:contentDescription="@string/start_bike_tracking" />
+            <Button
+                android:id="@+id/btn_start"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="14pt"
+                android:background="#94c11f"
+                android:clickable="false"
+                android:fontFamily="monospace"
+                android:paddingTop="3pt"
+                android:text="@string/start"
+                android:textSize="14pt"
+                android:textStyle="bold" />
 
-            <ImageButton
-                android:id="@+id/btn_walk"
-                android:layout_width="37pt"
-                android:layout_height="37pt"
-                android:layout_marginStart="6pt"
-                android:layout_marginTop="17pt"
-                android:background="@drawable/roundedbutton"
-                android:backgroundTint="#8dc04d"
-                tools:ignore="ButtonStyle"
-                android:src="@drawable/walk"
-                android:tint="@color/white"
-                android:contentDescription="@string/start_walk_tracking" />
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="6pt">
 
-            <ImageButton
-                android:id="@+id/btn_bus"
-                android:layout_width="37pt"
-                android:layout_height="37pt"
-                android:layout_marginStart="6pt"
-                android:layout_marginTop="17pt"
-                android:background="@drawable/roundedbutton"
-                android:backgroundTint="#ea8916"
-                tools:ignore="ButtonStyle"
-                android:src="@drawable/bus"
-                android:tint="@color/white"
-                android:contentDescription="@string/start_bus_tracking" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5pt"
+                    android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/btn_train"
-                android:layout_width="37pt"
-                android:layout_height="37pt"
-                android:layout_marginStart="6pt"
-                android:layout_marginTop="17pt"
-                android:layout_marginEnd="6pt"
-                android:background="@drawable/roundedbutton"
-                android:backgroundTint="#26c6da"
-                tools:ignore="ButtonStyle"
-                android:src="@drawable/train"
-                android:tint="@color/white"
-                android:contentDescription="@string/start_train_tracking" />
+                    <ImageButton
+                        android:id="@+id/btn_bike"
+                        android:layout_width="37pt"
+                        android:layout_height="37pt"
+                        android:layout_marginStart="6pt"
+                        android:background="@drawable/roundedbutton"
+                        android:backgroundTint="#932e68"
+                        android:contentDescription="@string/start_bike_tracking"
+                        android:src="@drawable/bike"
+                        android:tint="@color/white"
+                        tools:ignore="ButtonStyle" />
 
+                    <ImageButton
+                        android:id="@+id/btn_walk"
+                        android:layout_width="37pt"
+                        android:layout_height="37pt"
+                        android:layout_marginStart="6pt"
+                        android:background="@drawable/roundedbutton"
+                        android:backgroundTint="#8dc04d"
+                        android:contentDescription="@string/start_walk_tracking"
+                        android:src="@drawable/walk"
+                        android:tint="@color/white"
+                        tools:ignore="ButtonStyle" />
+
+                    <ImageButton
+                        android:id="@+id/btn_bus"
+                        android:layout_width="37pt"
+                        android:layout_height="37pt"
+                        android:layout_marginStart="6pt"
+                        android:background="@drawable/roundedbutton"
+                        android:backgroundTint="#ea8916"
+                        android:contentDescription="@string/start_bus_tracking"
+                        android:src="@drawable/bus"
+                        android:tint="@color/white"
+                        tools:ignore="ButtonStyle" />
+
+                    <ImageButton
+                        android:id="@+id/btn_train"
+                        android:layout_width="37pt"
+                        android:layout_height="37pt"
+                        android:layout_marginEnd="6pt"
+                        android:layout_marginStart="6pt"
+                        android:background="@drawable/roundedbutton"
+                        android:backgroundTint="#26c6da"
+                        android:contentDescription="@string/start_train_tracking"
+                        android:src="@drawable/train"
+                        android:tint="@color/white"
+                        tools:ignore="ButtonStyle" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextClock
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="3pt"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="9pt"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAlignment="center"
+                android:textSize="13pt"
+                android:fontFamily="monospace"
+                android:textColor="@color/white"
+                android:text="NICKNAME"
+                android:layout_marginBottom="2pt"
+                android:layout_marginTop="13pt"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15pt">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:layout_width="80pt"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10pt">
+                        <TextView
+                            android:layout_width="46pt"
+                            android:layout_height="wrap_content"
+                            android:textSize="13pt"
+                            android:fontFamily="monospace"
+                            android:textColor="@color/white"
+                            android:textAlignment="textEnd"
+                            android:layout_marginTop="10pt"
+                            android:text="1000"/>
+                        <ImageView
+                            android:layout_width="35pt"
+                            android:layout_height="35pt"
+                            android:layout_marginStart="43pt"
+                            android:rotation="-10"
+                            android:src="@drawable/leaf"
+                            android:tint="#69b64d"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30pt"
+                            android:textAlignment="center"
+                            android:textSize="7pt"
+                            android:fontFamily="monospace"
+                            android:textColor="@color/white"
+                            android:text="@string/green_leaves_points"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="80pt"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10pt"
+                        android:layout_marginEnd="12pt">
+                        <TextView
+                            android:layout_width="35pt"
+                            android:layout_height="wrap_content"
+                            android:textSize="13pt"
+                            android:fontFamily="monospace"
+                            android:textColor="@color/white"
+                            android:textAlignment="textEnd"
+                            android:layout_marginTop="12pt"
+                            android:text="14"/>
+                        <ImageView
+                            android:layout_width="30pt"
+                            android:layout_height="30pt"
+                            android:layout_marginStart="40pt"
+                            android:layout_marginTop="5pt"
+                            android:src="@drawable/podium"
+                            android:tint="#69b64d"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30pt"
+                            android:textAlignment="center"
+                            android:textSize="10pt"
+                            android:fontFamily="monospace"
+                            android:textColor="@color/white"
+                            android:text="@string/ranking"/>
+                    </RelativeLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+            <TextClock
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="3pt"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="9pt"
+                android:textStyle="bold" />
         </LinearLayout>
-    </HorizontalScrollView>
+    </ScrollView>
 </android.support.wear.widget.BoxInsetLayout>
