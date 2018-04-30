@@ -36,7 +36,7 @@ public class tracking_on extends WearableActivity {
     Handler handler;
     private GoogleApiClient api;
     private String mode;
-    private boolean tracking = true;
+    private int bg;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -47,7 +47,8 @@ public class tracking_on extends WearableActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if(bundle != null){
-            im.setImageResource(bundle.getInt("tracking_bg"));
+            bg = bundle.getInt("tracking_bg");
+            im.setImageResource(bg);
             mode = bundle.getString("tracking_mode");
         }
         if(api == null){
@@ -99,8 +100,11 @@ public class tracking_on extends WearableActivity {
                     distance_txt.setText("Km " + df.format(km));
                 }
                 if(sender.equals("smartphone") && activity.equals("stoptracking") && tr_mode.equals(mode) && value.equals("ok")) {
-                    tracking = false;
                     handler.removeCallbacksAndMessages(null);
+                    Intent sync = new Intent(tracking_on.this, tracking_sync.class);
+                    sync.putExtra("tracking_bg", bg);
+                    sync.putExtra("tracking_mode", mode);
+                    tracking_on.this.startActivity(sync);
                 }
             }
         };

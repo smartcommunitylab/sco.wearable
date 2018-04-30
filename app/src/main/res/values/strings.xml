@@ -17,4 +17,5 @@
     <string name="hello_world">Hello Square World!</string>
     <string name="tracking_activity_background">Tracking activity background</string>
     <string name="stop">Stop</string>
+    <string name="title_activity_tracking_sync">tracking_sync</string>
 </resources>

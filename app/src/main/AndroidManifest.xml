@@ -50,7 +50,10 @@
 
         <activity
             android:name=".tracking_on"
-            android:label="@string/title_activity_tracking_on"></activity>
+            android:label="@string/title_activity_tracking_on" />
+        <activity
+            android:name=".tracking_sync"
+            android:label="@string/title_activity_tracking_sync"></activity>
     </application>
 
 </manifest>
