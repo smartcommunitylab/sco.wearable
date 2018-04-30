@@ -11,6 +11,8 @@ import android.support.annotation.NonNull;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.wearable.activity.WearableActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,6 +36,7 @@ public class tracking_on extends WearableActivity {
     Handler handler;
     private GoogleApiClient api;
     private String mode;
+    private boolean tracking = true;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -69,6 +72,14 @@ public class tracking_on extends WearableActivity {
         handler.postDelayed(new Stopwatch(), 500);
         handler.postDelayed(new GetDistance(), 5000);
 
+        Button btn_stop = findViewById(R.id.btn_stop);
+        btn_stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                (new Thread(new MessageRunnable("wearable_stoptracking_"+mode))).start();
+            }
+        });
+
         // Broadcast Receiver
         IntentFilter filter = new IntentFilter(Intent.ACTION_SEND);
         BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -78,14 +89,18 @@ public class tracking_on extends WearableActivity {
                 Log.i("WearService", "tracking_on: " + msg);
                 String sender = msg.split("_")[0];
                 String activity = msg.split("_")[1];
-                String mode = msg.split("_")[2];
+                String tr_mode = msg.split("_")[2];
                 String value = msg.split("_")[3];
 
-                if(sender.equals("smartphone") && activity.equals("getdistance") && !value.equals("err")){
+                if(sender.equals("smartphone") && activity.equals("getdistance") && tr_mode.equals(mode) && !value.equals("err")){
                     DecimalFormat df = new DecimalFormat("###.#");
                     df.setRoundingMode(RoundingMode.CEILING);
                     Double km = Double.parseDouble(value);
                     distance_txt.setText("Km " + df.format(km));
+                }
+                if(sender.equals("smartphone") && activity.equals("stoptracking") && tr_mode.equals(mode) && value.equals("ok")) {
+                    tracking = false;
+                    handler.removeCallbacksAndMessages(null);
                 }
             }
         };
