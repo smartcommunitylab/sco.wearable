@@ -104,10 +104,11 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/txt_username"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textAlignment="center"
-                android:textSize="13pt"
+                android:textSize="10pt"
                 android:fontFamily="monospace"
                 android:textColor="@color/white"
                 android:text="NICKNAME"
@@ -128,6 +129,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10pt">
                         <TextView
+                            android:id="@+id/txt_points"
                             android:layout_width="46pt"
                             android:layout_height="wrap_content"
                             android:textSize="13pt"
@@ -159,6 +161,7 @@
                         android:layout_marginStart="10pt"
                         android:layout_marginEnd="12pt">
                         <TextView
+                            android:id="@+id/txt_ranking"
                             android:layout_width="35pt"
                             android:layout_height="wrap_content"
                             android:textSize="13pt"

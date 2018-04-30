@@ -11,12 +11,16 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.wearable.MessageApi;
 import com.google.android.gms.wearable.Node;
 import com.google.android.gms.wearable.NodeApi;
 import com.google.android.gms.wearable.Wearable;
+
+import org.w3c.dom.Text;
 
 public class tracking_start extends WearableActivity {
 
@@ -64,6 +68,14 @@ public class tracking_start extends WearableActivity {
             }
         });
 
+        final TextView username = findViewById(R.id.txt_username);
+        final TextView points = findViewById(R.id.txt_points);
+        final TextView ranking = findViewById(R.id.txt_ranking);
+
+        (new Thread(new MessageRunnable("wearable_getinfo_username"))).start();
+        (new Thread(new MessageRunnable("wearable_getinfo_points"))).start();
+        (new Thread(new MessageRunnable("wearable_getinfo_ranking"))).start();
+
         // Enables Always-on
         setAmbientEnabled();
 
@@ -77,9 +89,9 @@ public class tracking_start extends WearableActivity {
                 String sender = msg.split("_")[0];
                 String activity = msg.split("_")[1];
                 String mode = msg.split("_")[2];
-                String ok = msg.split("_")[3];
+                String value = msg.split("_")[3];
 
-                if(sender.equals("smartphone") && activity.equals("starttracking") && ok.equals("ok")){
+                if(sender.equals("smartphone") && activity.equals("starttracking") && value.equals("ok")){
                     Intent tracking = new Intent(tracking_start.this, tracking_on.class);
                     switch (mode){
                         case "bike":
@@ -101,6 +113,14 @@ public class tracking_start extends WearableActivity {
                         default: return;
                     }
                     tracking_start.this.startActivity(tracking);
+                }
+                if(sender.equals("smartphone") && activity.equals("getinfo") && !value.equals("err")){
+                    switch (mode){
+                        case "username": username.setText(value); break;
+                        case "points": points.setText(value);     break;
+                        case "ranking": ranking.setText(value);   break;
+                        default: return;
+                    }
                 }
             }
         };
