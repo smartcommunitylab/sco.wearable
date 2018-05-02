@@ -20,8 +20,6 @@ import com.google.android.gms.wearable.Node;
 import com.google.android.gms.wearable.NodeApi;
 import com.google.android.gms.wearable.Wearable;
 
-import org.w3c.dom.Text;
-
 public class tracking_start extends WearableActivity {
 
     private GoogleApiClient api;
@@ -29,7 +27,7 @@ public class tracking_start extends WearableActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_tracking_start);
 
         if(api == null){
             api = new GoogleApiClient.Builder(this.getApplicationContext()).addApi(Wearable.API).build();
