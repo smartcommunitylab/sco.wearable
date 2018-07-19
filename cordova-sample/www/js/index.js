@@ -5,11 +5,26 @@ var app = {
 
   onDeviceReady: function () {
       this.receivedEvent('deviceready');
+      var phone = "smartphone"
+      var r = "_"
+      var ok = "ok"
+      var logged = "notlogged"
 
-      document.getElementById("btn_login").addEventListener("click", function () { send('smartphone_logstatus_ok'); }, false);
+      //Buttons
+      document.getElementById("btn_login").addEventListener("click", function () { logged="ok" }, false);
+      document.getElementById("btn_logout").addEventListener("click", function () { logged="notlogged" }, false);
 
+      //Receiver
       AndroidWearApi.getMessages(function (data) {
-          alert(data);
+        var sender = data.split("_")[0]
+        var activity = data.split("_")[1]
+        var status = data.split("_")[2]
+        if(sender = "wearable"){
+          switch (activity) {
+            case "logstatus": send(phone+r+activity+r+logged+r+logged); break;
+          }
+        }
+          // alert(data);
       });
   },
 
