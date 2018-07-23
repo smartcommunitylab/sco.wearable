@@ -8,7 +8,10 @@ var app = {
       var phone = "smartphone"
       var r = "_"
       var ok = "ok"
+
       var logged = "notlogged"
+      var km = null
+      var mode = "null"
 
       //Buttons
       document.getElementById("btn_login").addEventListener("click", function () { logged="ok" }, false);
@@ -22,9 +25,13 @@ var app = {
         if(sender = "wearable"){
           switch (activity) {
             case "logstatus": send(phone+r+activity+r+logged+r+logged); break;
+            case "starttracking":
           }
         }
           // alert(data);
+        document.getElementById("txt_logstatus").innerHTML = "Logged: " + logged;
+        document.getElementById("txt_mode").innerHTML = "Mode: " + mode;
+        document.getElementById("txt_km").innerHTML = "Km: " + km;
       });
   },
 
