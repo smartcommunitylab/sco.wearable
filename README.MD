@@ -9,15 +9,17 @@ sender_activity_mode_value
 ```
 ## Application
 ### Login screen
-![Login screen image](https://drive.google.com/open?id=1cOI86Y5TK1ODJJMakQ_S8NutYRXiGJFQ)
+<img src="https://gitlab.com/davide-calza/viaggia-wearable-android/raw/master/screens/login.png" width="200" height="200" />
 1. **Wearable:** wearable_logstatus_null
 2. **Phone:** 
     * smartphone_logstatus_ok_ok
     * smartphone_logstatus_notlogged_notlogged
 
 ### Start Tracking screen
-![Login screen image](https://drive.google.com/open?id=1K7AN9zdZvT0mnMclfKU5nxflpOhPa7Iz)
-![Login screen image](https://drive.google.com/open?id=1Jh4XP8E5LEsYGnGwsv8etdiydtcte3mh)
+<img src="https://gitlab.com/davide-calza/viaggia-wearable-android/raw/master/screens/track-1.png" width="200" height="200" />
+<img src="https://gitlab.com/davide-calza/viaggia-wearable-android/raw/master/screens/track-2.png" width="200" height="200" />
+<img src="https://gitlab.com/davide-calza/viaggia-wearable-android/raw/master/screens/user-1.png" width="200" height="200" />
+<img src="https://gitlab.com/davide-calza/viaggia-wearable-android/raw/master/screens/user-2.png" width="200" height="200" />
 1. **Wearable:** 
     * wearable_starttracking_[bike|bus|train|walk]
     * wearable_getinfo_[username|points|ranking]
@@ -26,7 +28,7 @@ sender_activity_mode_value
     * smartphone_getinfo_[username|points|ranking]_[username|points|ranking]
 
 ### On Tracking screen
-![Login screen image](https://drive.google.com/open?id=1Iy9HsSXtpoccES8xhdG9_XIGb65EqOsw)
+<img src="https://gitlab.com/davide-calza/viaggia-wearable-android/raw/master/screens/tracking-on.png" width="200" height="200" />
 1. **Wearable:** 
     * wearable_stoptracking_[bike|bus|train|walk]
     * wearable_getdistance_[bike|bus|train|walk]
@@ -35,7 +37,7 @@ sender_activity_mode_value
     * wearable_getdistance_[bike|bus|train|walk]_distance
 
 ### Sync Tracking screen
-![Login screen image](https://drive.google.com/open?id=18oGJIFrNT2x22DfRG7FykmltBYVyKZuv)
+<img src="https://gitlab.com/davide-calza/viaggia-wearable-android/raw/master/screens/tracking-sync.png" width="200" height="200" />
 2. **Phone:** 
     * smartphone_sync_ok_ok
     * smartphone_sync_err_message
