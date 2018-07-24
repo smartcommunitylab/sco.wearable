@@ -1,12 +1,12 @@
 # Viaggia Play&Go (Wearable Communication)
 ## Communication Wearable ⟶ Phone
-'''
+```
 sender_activity_value
-'''
+```
 ## Communication Phone ⟶ Wearable
-'''
+```
 sender_activity_mode_value
-'''
+```
 ## Application
 ### Login screen
 ![Login screen image](https://drive.google.com/open?id=1cOI86Y5TK1ODJJMakQ_S8NutYRXiGJFQ)
