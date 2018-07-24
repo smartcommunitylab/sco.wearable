@@ -17,6 +17,8 @@ var app = {
       //Buttons
       document.getElementById("btn_login").addEventListener("click", function () { logged="ok" }, false);
       document.getElementById("btn_logout").addEventListener("click", function () { logged="notlogged" }, false);
+      document.getElementById("btn_syncok").addEventListener("click", function () { send(phone+r+"sync"+r+ok+r+ok); }, false);
+      document.getElementById("btn_syncerr").addEventListener("click", function () { send(phone+r+"sync"+r+err+r+"Failed to synchronize :("); }, false);
 
       //Receiver
       AndroidWearApi.getMessages(function (data) {
