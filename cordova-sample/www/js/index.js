@@ -8,6 +8,7 @@ var app = {
       var phone = "smartphone"
       var r = "_"
       var ok = "ok"
+      var err = "err"
 
       var logged = "notlogged"
       var km = null
@@ -21,11 +22,14 @@ var app = {
       AndroidWearApi.getMessages(function (data) {
         var sender = data.split("_")[0]
         var activity = data.split("_")[1]
-        var status = data.split("_")[2]
+        var value = data.split("_")[2]
         if(sender = "wearable"){
           switch (activity) {
             case "logstatus": send(phone+r+activity+r+logged+r+logged); break;
-            case "starttracking":
+            case "starttracking": km = 0; mode = value; send(phone+r+activity+r+mode+r+ok); break;
+            case "stoptracking": send(phone+r+activity+r+mode+r+ok); break;
+            case "getdistance": km++; send(phone+r+activity+r+mode+r+km); break;
+            default: send(phone+r+err+r+err+r+err); break;
           }
         }
           // alert(data);
