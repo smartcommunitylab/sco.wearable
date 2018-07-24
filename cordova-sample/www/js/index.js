@@ -10,6 +10,10 @@ var app = {
       var ok = "ok"
       var err = "err"
 
+      var username = "user.name"
+      var points = 27000
+      var ranking = 14
+
       var logged = "notlogged"
       var km = null
       var mode = "null"
@@ -31,7 +35,14 @@ var app = {
             case "starttracking": km = 0; mode = value; send(phone+r+activity+r+mode+r+ok); break;
             case "stoptracking": send(phone+r+activity+r+mode+r+ok); break;
             case "getdistance": km++; send(phone+r+activity+r+mode+r+km); break;
-            default: send(phone+r+err+r+err+r+err); break;
+            case "getinfo":
+              switch (value) {
+                case "username": send(phone+r+activity+r+value+r+username); break;
+                case "points": send(phone+r+activity+r+value+r+points); break;
+                case "ranking": send(phone+r+activity+r+yvalue+r+ranking); break;
+                default: send(phone+r+activity+r+mode+r+err);
+              } break;
+            default: send(phone+r+err+r+err+r+err);
           }
         }
           // alert(data);
