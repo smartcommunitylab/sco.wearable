@@ -46,7 +46,7 @@ public class tracking_sync extends WearableActivity {
             @Override
             public void onReceive(Context context, Intent intent) {
                 String msg = intent.getStringExtra("WearMessage");
-                Log.i("WearService", "tracking_on: " + msg);
+                Log.i("WearService", "tracking_sync: " + msg);
                 String sender = msg.split("_")[0];
                 String activity = msg.split("_")[1];
                 String value = msg.split("_")[2];
